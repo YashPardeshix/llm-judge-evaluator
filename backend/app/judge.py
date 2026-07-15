@@ -1,7 +1,10 @@
 from app.schemas import Rubric, EvaluationResult
 from openai import OpenAI
+from dotenv import load_dotenv
 import os
 import json
+
+load_dotenv()
 
 api_key = os.environ.get("NVIDIA_API_KEY")
 
