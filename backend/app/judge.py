@@ -1,4 +1,4 @@
-from app.schemas import Rubric, EvaluationResult
+from backend.app.schemas import Rubric, EvaluationResult
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
@@ -44,12 +44,16 @@ def evaluate(users_query: str, llms_response: str, rubric: Rubric) -> Evaluation
   
     completion = client.chat.completions.create(
         model="deepseek-ai/deepseek-v4-flash",
-        messages=[{"role": "system", "content": system_prompt}],
-        response_format={"type": "json_object"},  
+        messages=[{"role": "user", "content": system_prompt}], 
         temperature=0.1  
     )
 
     raw_json = completion.choices[0].message.content
+
+    print("\n=== DEBUGGING NVIDIA RESPONSE ===")
+    print(f"Raw Content: {raw_json}")
+    print(f"Full Completion Object: {completion}")
+    print("=================================\n")
 
     validated_result = EvaluationResult.model_validate_json(raw_json)
    
