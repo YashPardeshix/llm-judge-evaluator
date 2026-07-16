@@ -38,7 +38,7 @@ def evaluate(users_query: str, llms_response: str, rubric: Rubric) -> Evaluation
     {{
       "score": float (0.0 to 1.0, representing the overall weighted score),
       "is_pass": boolean (true if the overall score meets passing standards, false otherwise),
-      "feedback": "string (your detailed reasoning explaining how the model scored on each criterion)."
+      "feedback": "string (your detailed reasoning explaining how the model scored on each criterion)"
     }}
     """
   
