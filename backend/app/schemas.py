@@ -15,3 +15,8 @@ class EvaluationResult(BaseModel):
     score: float
     is_pass: bool
     feedback: str  
+
+class EvaluationRequest(BaseModel):
+    users_query: str
+    llms_response: str
+    rubric: Rubric
