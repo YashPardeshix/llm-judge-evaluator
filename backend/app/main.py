@@ -17,7 +17,8 @@ def run_evaluation(request: EvaluationRequest):
     save_evaluation(
         user_query=request.users_query,
         llms_response=request.llms_response,
-        result=result
+        result=result,
+        run_id=request.run_id
     )
-    
+
     return result

@@ -10,6 +10,7 @@ def init_db():
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS evaluations (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
+        run_id TEXT,
         user_query TEXT,
         llm_response TEXT,
         score REAL,
@@ -23,7 +24,7 @@ def init_db():
     conn.close()
 
 
-def save_evaluation(user_query: str, llms_response: str, result: EvaluationResult):
+def save_evaluation(user_query: str, llms_response: str, result: EvaluationResult, run_id: str):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     
@@ -32,9 +33,9 @@ def save_evaluation(user_query: str, llms_response: str, result: EvaluationResul
     feedback = result.feedback
     
     cursor.execute("""
-    INSERT INTO evaluations (user_query, llm_response, score, is_pass, feedback)
-    VALUES (?, ?, ?, ?, ?);
-    """, (user_query, llms_response, score, is_pass_int, feedback))
+    INSERT INTO evaluations (user_query, llm_response, score, is_pass, feedback, run_id)
+    VALUES (?, ?, ?, ?, ?, ?);
+    """, (user_query, llms_response, score, is_pass_int, feedback, run_id))
     
     conn.commit()
     conn.close()
