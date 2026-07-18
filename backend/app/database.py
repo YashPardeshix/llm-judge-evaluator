@@ -39,3 +39,14 @@ def save_evaluation(user_query: str, llms_response: str, result: EvaluationResul
     
     conn.commit()
     conn.close()
+
+def get_scores_by_run_id(run_id: str):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("""
+    SELECT score FROM evaluations WHERE run_id = ?;
+    """, (run_id,))
+    raw_rows = cursor.fetchall()
+    scores = [row[0] for row in raw_rows]
+    conn.close()
+    return scores
