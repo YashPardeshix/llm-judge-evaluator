@@ -3,10 +3,19 @@ from backend.app.schemas import EvaluationRequest, EvaluationResult, CompareRequ
 from backend.app.judge import evaluate
 from backend.app.database import save_evaluation, get_scores_by_run_id, init_db 
 from backend.app.analytics import detect_regression 
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="LLM-as-Judge API")
 
 init_db()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],          
+    allow_credentials=True,
+    allow_methods=["*"],             
+    allow_headers=["*"],            
+)
 
 @app.post("/evaluate", response_model=EvaluationResult)
 def run_evaluation(request: EvaluationRequest):
