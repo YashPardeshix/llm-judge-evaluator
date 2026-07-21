@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ShieldAlert, BarChart2 } from 'lucide-react';
 import StatsRow from './components/StatsRow';
+import TrendsChart from './components/TrendsChart';
 
 export default function App() {
   const [stats, setStats] = useState({
@@ -8,6 +9,13 @@ export default function App() {
     averageScore: 0.82,
     activeAlerts: 1,
   });
+
+  const [trendData, setTrendData] = useState([
+    { name: 'v1.0', score: 90 },
+    { name: 'v1.1', score: 85 },
+    { name: 'v1.2', score: 88 },
+    { name: 'v2.0', score: 30 }, 
+  ]);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex">
@@ -36,6 +44,18 @@ export default function App() {
           average={stats.averageScore} 
           alerts={stats.activeAlerts} 
         />
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div className="lg:col-span-8">
+            <TrendsChart data={trendData} />
+          </div>
+          
+          <div className="lg:col-span-4 flex flex-col gap-6">
+            <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col justify-center items-center h-full text-slate-500 text-xs italic">
+              Run Comparison Card placing here next...
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );
