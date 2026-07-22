@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { ShieldAlert, BarChart2 } from 'lucide-react';
 import StatsRow from './components/StatsRow';
 import TrendsChart from './components/TrendsChart';
+import ComparePanel from './components/ComparePanel';
+import EvaluationForm from './components/EvaluationForm';
 
 export default function App() {
   const [stats, setStats] = useState({
@@ -14,12 +16,11 @@ export default function App() {
     { name: 'v1.0', score: 90 },
     { name: 'v1.1', score: 85 },
     { name: 'v1.2', score: 88 },
-    { name: 'v2.0', score: 30 }, 
+    { name: 'v2.0', score: 30 },
   ]);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex">
-      {/* SIDEBAR */}
       <aside className="w-64 bg-slate-950 border-r border-slate-900 p-6 flex flex-col gap-6">
         <div className="flex items-center gap-3">
           <ShieldAlert className="text-rose-500 w-8 h-8" />
@@ -50,12 +51,11 @@ export default function App() {
             <TrendsChart data={trendData} />
           </div>
           
-          <div className="lg:col-span-4 flex flex-col gap-6">
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col justify-center items-center h-full text-slate-500 text-xs italic">
-              Run Comparison Card placing here next...
-            </div>
+          <div className="lg:col-span-4">
+            <ComparePanel />
           </div>
         </div>
+        <EvaluationForm />
       </main>
     </div>
   );
