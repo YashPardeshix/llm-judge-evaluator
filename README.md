@@ -4,7 +4,7 @@ An automated, full-stack quality control system for AI outputs. This service eva
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```text
   [ React Dashboard ] (Port 5173)
