@@ -84,7 +84,7 @@ Dashboard is live at: http://localhost:5173
 
 POST /evaluate
 
-Evaluates a raw LLM output against a structured rubric..
+Evaluates a raw LLM output against a structured rubric.
 
   - Payload: EvaluationRequest (includes users_query, llms_response, rubric,
     run_id).
