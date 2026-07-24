@@ -94,7 +94,7 @@ POST /compare
 
 Executes an independent t-test between two run IDs.
 
-  - Payload: CompareRequest (includes baseline_run, current_run)..
+  - Payload: CompareRequest (includes baseline_run, current_run).
   - Returns: baseline_count, current_count, is_regression.
 
 
