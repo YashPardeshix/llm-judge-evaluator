@@ -1,6 +1,6 @@
 # Judge.ai: LLM-as-Judge Evaluation Service
 
-An automated, full-stack quality control system for AI outputs. This service evaluates LLM responses against customized rubrics, stores score history, and runs statistical t-tests to automatically detect quality regressions over time.
+An automated, full-stack quality control system for AI outputs. This service evaluates LLM responses against customized rubrics, stores score history, and runs statistical t-tests to automatically detect quality regressions over time..
 
 ---
 
