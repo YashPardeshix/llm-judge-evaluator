@@ -40,7 +40,7 @@ def save_evaluation(user_query: str, llms_response: str, result: EvaluationResul
     conn.commit()
     conn.close()
 
-def get_scores_by_run_id(run_id: str):
+def get_scores_by_run_id(run_id: str) -> list[float]:
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute("""
