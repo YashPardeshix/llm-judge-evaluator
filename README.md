@@ -38,7 +38,7 @@ An automated, full-stack quality control system for AI outputs. This service eva
     payloads.
   - Implementation: Nesting multiple Criterion objects inside a Rubric container
     class. This keeps evaluation rules grouped by domain and prevents
-    cross-domain data pollution.
+    cross-domain data pollution
 
 3. Pattern 11 — Quality Regression Detection
 
